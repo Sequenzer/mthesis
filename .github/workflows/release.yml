@@ -3,10 +3,9 @@ name: Compile Latex and Release PDF
 
 on:
   push:
-  workflow_dispatch:
+    tags:
+      - '*.*.*'
     
-  
- 
  
 jobs:
   build_latex:
@@ -26,8 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1
-          release_name: Release v1
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
 
