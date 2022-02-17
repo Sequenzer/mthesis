@@ -1,5 +1,6 @@
+ressource/
 *.aux
 *.log
-*.pdf
+Latex/*.pdf
 *.gz
 *.out

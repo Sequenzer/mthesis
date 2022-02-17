@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "3 Resources/Signomials.md",
+            "file": "2 Areas/Research ToDos.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3 Resources/Signomials.md",
+                "file": "2 Areas/Research ToDos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,12 +89,14 @@
   },
   "active": "0e72c0dc964ef46f",
   "lastOpenFiles": [
-    "3 Resources/Signomials.md",
-    "3 Resources/Algebraic Definitions.md",
+    "2 Areas/Research ToDos.md",
+    "3 Resources/On an extension of Polya’s Positivstellensatz.md",
     "3 Resources/Positivstellensätze.md",
+    "3 Resources/Polynomials.md",
+    "3 Resources/Signomials.md",
     "3 Resources/Notation.md",
     "3 Resources/Algebraic Perspectives on Sigmonial Optimization.md",
-    "2 Areas/Research ToDos.md",
+    "3 Resources/Algebraic Definitions.md",
     "Untitled.md",
     "1 Projects/Masterarbeit.md"
   ]

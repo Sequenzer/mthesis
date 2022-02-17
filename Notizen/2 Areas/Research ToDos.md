@@ -11,4 +11,6 @@ Stuff I have to look up.
 - Chandrasekaran and Shah Positivstellensätze
 - Wang's Positivstellen Satz
 - Generalized Riesz Haviland Theorem
+- Krivine-Stengle Positivstellensatz
+- Tarski-Seidenberg
 - 
