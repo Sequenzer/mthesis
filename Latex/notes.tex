@@ -1,0 +1,31 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\section{Temporary Notes}
+\begin{thm}[Polya's Positivstellensatz]
+Let $f \in \mathbb R [x]$ be a homogeneous polynomials on $\mathbb R^n $ such that $f(x) > 0 $ for all $ x \in  \mathbb R_+^n \backslash \lbrace 0 \rbrace$. Then for some $r \in \mathbb Z_+$, we have that all coefficients of $ \vert x \vert^r  \cdot f(x)$ are non-negative.
+\begin{proof}
+Let $f \in \mathbb{R}[x]$ be a homogenoeous polynomial of degree $d$ such that $f(x) > 0 $ for all $x \in \mathbb R _+^n \backslash \lbrace 0 \rbrace$.
+
+\begin{equation}
+ f(x)= \sum_{\vert \alpha \vert=d}^m c_\alpha x^{\alpha}. 
+\end{equation}
+Then we can write
+\begin{align*}
+\vert x \vert^r \cdot f (x) &= \sum_{\vert \alpha \vert = r } \binom r \alpha x^\alpha \cdot f(x) \\
+&= \sum_{\vert \beta \vert = r } \sum_{\vert \alpha \vert=d}  \binom r \beta x^\beta   c_\alpha x^\alpha \\
+&= \sum_{\vert \beta \vert = r } \sum_{\vert \alpha \vert=d} \frac{r!}{\alpha!} c_\alpha x^\alpha x^{\alpha+\beta} \\
+&= \sum_{\vert \beta \vert = r }  \frac{r!}{\alpha!} x^{\alpha+\beta} \sum_{\vert \alpha \vert=d} c_\alpha x^\alpha  \\
+\end{align*}
+\end{proof}
+\end{thm}
+\begin{thm}[Reznick's Positivstellensatz]
+
+
+\end{thm}
+\begin{thm}[Putinar-Vasilescu's Positivstellensatz]
+
+\end{thm}
+\begin{thm}[Dickinson-Povh's Positivstellensatz]
+
+\end{thm}
+\end{document}
