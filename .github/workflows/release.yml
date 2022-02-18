@@ -2,8 +2,6 @@ name: Compile Latex and Release PDF
 
 on:
   push:
-    tags:
-      - "*.*.*"
 
 jobs:
   build_latex:
@@ -17,16 +15,14 @@ jobs:
           working_directory: Latex
           root_file: main.tex
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            *.pdf
 
       - name: Upload Release Asset
         id: upload-release-asset
@@ -35,6 +31,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./Latex/main.pdf
+          asset_path: ./main.pdf
           asset_name: main.pdf
           asset_content_type: pdf
