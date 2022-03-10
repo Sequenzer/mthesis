@@ -1,31 +1,52 @@
 \documentclass[./main.tex]{subfiles}
 \begin{document}
-\section{Temporary Notes}
-\begin{thm}[Polya's Positivstellensatz]
-Let $f \in \mathbb R [x]$ be a homogeneous polynomials on $\mathbb R^n $ such that $f(x) > 0 $ for all $ x \in  \mathbb R_+^n \backslash \lbrace 0 \rbrace$. Then for some $r \in \mathbb Z_+$, we have that all coefficients of $ \vert x \vert^r  \cdot f(x)$ are non-negative.
-\begin{proof}
-Let $f \in \mathbb{R}[x]$ be a homogenoeous polynomial of degree $d$ such that $f(x) > 0 $ for all $x \in \mathbb R _+^n \backslash \lbrace 0 \rbrace$.
-
+\section{Non-Sage Signomials}
+Se $\mathbb{S}^1$ die Menge aller Signome . Wir können jedes Signom in die Differenz von 2 Posynome aufteilen.
 \begin{equation}
- f(x)= \sum_{\vert \alpha \vert=d}^m c_\alpha x^{\alpha}. 
+f(x)= \sum_{j \in P } c_j x^{\alpha_j} + \sum_{j \in N} c_j x^{\alpha_h}
 \end{equation}
-Then we can write
-\begin{align*}
-\vert x \vert^r \cdot f (x) &= \sum_{\vert \alpha \vert = r } \binom r \alpha x^\alpha \cdot f(x) \\
-&= \sum_{\vert \beta \vert = r } \sum_{\vert \alpha \vert=d}  \binom r \beta x^\beta   c_\alpha x^\alpha \\
-&= \sum_{\vert \beta \vert = r } \sum_{\vert \alpha \vert=d} \frac{r!}{\alpha!} c_\alpha x^\alpha x^{\alpha+\beta} \\
-&= \sum_{\vert \beta \vert = r }  \frac{r!}{\alpha!} x^{\alpha+\beta} \sum_{\vert \alpha \vert=d} c_\alpha x^\alpha  \\
-\end{align*}
+mit $c_j<0$ wenn $j \in N$ und $c_j>0$ wenn $j \in P$. $\alpha_j \in \mathbb{R}$ sind reelle Zahlen.
+
+\begin{lem}
+$\left\vert P \right\vert < \left\vert N \right\vert$ implies $f \not\in SAGE$
+\begin{proof}
+Angenommen $f \in SAGE$. D.h es existieren $g_1,\dots,g_n$ mit $g_i \in AGE$.Sodass 
+\begin{equation}
+f(x)= \sum_{j =1}^n g_j(x)
+\end{equation}
+Insbesondere gilt $g_i>0$ und $g_i$ enthält höchstens ein negatives Monom. Also gilt $n \geq \left\vert N \right\vert > \left\vert P \right\vert$. Woraus folgt, dass mindestens ein $g_j$ kein positives Monom enthält und somit global negativ sein muss. Es folgt $g_j \not\in  AGE$. Ein Widerspruch.
 \end{proof}
-\end{thm}
-\begin{thm}[Reznick's Positivstellensatz]
+\end{lem}
 
+\begin{lem}
+Es gilt
+\begin{equation}
+f(x) = \left\vert c \right\vert x^m - \sum_{j\in P} c_j x^{\alpha_j} + \left\vert c \right\vert x^n >0 \ \forall x\in \mathbb{R_\geq}
+\end{equation}
+Wobei $ c=(c_1,\dots,c_n) \in \mathbb{R}_\geq^n$. Mit $m > max \lbrace \alpha_j \ \vert \  j \in P \rbrace$ und $n < min \lbrace \alpha_j \ \vert \  j \in P \rbrace$
+\begin{proof}
+Es gilt
+\begin{equation}
+\left\vert c \right\vert x^m \geq \sum_{j\in P} c_j x^{\alpha_j} \ \forall x \geq 1
+\end{equation}
+und 
+\begin{equation}
+\left\vert c \right\vert x^n > \sum_{j\in P} c_j x^{\alpha_j} \ \forall x < 1
+\end{equation}
+Folgt beides aus der Konstruktion. Somit sind wir fertig.
+\end{proof}
+\end{lem}
+\begin{bsp}[$n=1$]
+\begin{equation}
+f(x) = 3 x^5 -x^\frac{25} 6  - x^\frac {17} 6 - x^\frac {11} 3   + 3x
+\end{equation}
+Ist nicht SAGE aber global positiv. Nach den Aussagen davor.
+\end{bsp}
+\begin{bsp}[$n=2$]
+\begin{equation} 
+f(x) = 3 x_1^5x_2^5 -x_1^\frac{25} 6 x_2^\frac {17} 6  - x_2^\frac {17} 6 x_2^\frac {11} 3 - x_3^\frac {11} 3 x_2^\frac{25} 6   + 3x_1x_2
+\end{equation}
+\color{red} Sollte im Allgemeinen Fall auch klappen. Habe es aber noch nicht so genau überpüft.....
+\end{bsp}
 
-\end{thm}
-\begin{thm}[Putinar-Vasilescu's Positivstellensatz]
-
-\end{thm}
-\begin{thm}[Dickinson-Povh's Positivstellensatz]
-
-\end{thm}
 \end{document}
