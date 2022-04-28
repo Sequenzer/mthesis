@@ -1,0 +1,15 @@
+{
+  "showCLICommands": false,
+  "addExtensionsToInternalLinks": "html",
+  "injectAppCSS": "light",
+  "injectThemeCSS": false,
+  "customCSSFile": null,
+  "displayYAMLFrontmatter": false,
+  "linkStrippingBehaviour": "link",
+  "highDPIDiagrams": true,
+  "pandoc": null,
+  "pdflatex": "/c/Program Files/MiKTeX/miktex/bin/x64/pdflatex",
+  "outputFolder": null,
+  "extraArguments": "",
+  "exportFrom": "html"
+}

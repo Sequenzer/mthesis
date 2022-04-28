@@ -1,0 +1,152 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{positive-polynomials-on-compact-sets}{%
+\section{Positive polynomials on compact
+sets}\label{positive-polynomials-on-compact-sets}}
+
+Created: 2022-04-07 14:22
+
+Let R be a commutative ring with 1 which contains \(\mathbb R\).
+
+\hypertarget{definitions}{%
+\subsubsection{Definitions}\label{definitions}}
+
+\hypertarget{semiring}{%
+\paragraph{semiring}\label{semiring}}
+
+\(P \subset R\) is called a \emph{semiring} iff,
+\[ 0,1 \in P, \ P + P \subset P, \ P \cdot P \in P.\] \^{}911707
+\textgreater{} It is multiplicative and additive closed.
+
+\hypertarget{preprime}{%
+\paragraph{preprime}\label{preprime}}
+
+A \protect\hyperlink{semiring}{semiring} \(P\) is called and (infinite)
+\emph{preprime} if \(-1 \in P\). \^{}9dffd2
+
+\hypertarget{archimedean}{%
+\paragraph{archimedean}\label{archimedean}}
+
+A {[}{[}\#preprime{]}{]} \(P \in R\) is called \emph{archimedean} if for
+all \(a\in R\) there exists an \(N \in \mathbb N\) such that
+\[ N \pm a \in P.\] \#\#\#\# representation space given a
+{[}{[}\#preprime{]}{]} \(P \subset R\) let
+\[ X(P) := \lbrace \phi \in Hom(R,\mathbb R)  \ \vert \ \phi(P) \subset \mathbb R_+ \rbrace\]
+be the \emph{representation space} of \(P\). \^{}85bd39
+
+\hypertarget{zero-locus}{%
+\paragraph{zero-locus}\label{zero-locus}}
+
+for \(\mathcal a = (a_1,\dots,a_n) \subset \mathbb R [X_1,\dots,X_n]\)
+we call,
+\[ V_\mathbb R(\mathcal a) = \lbrace x \in \mathbb R^n\vert \ a_1(x) = \dots = a_k(x) = 0 \rbrace\]
+the \emph{zero-locus} of \(a\). Furthermore is
+\[ S(P) := \lbrace x \in V_\mathbb R(\mathcal a) \vert \ f(x) \geq 0 \text{ for all } f \in P \rbrace\]
+a semialgebraic set. \^{}5ba5b9
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{theorem-1-kadison-dubois}{%
+\subsubsection{Theorem 1
+(Kadison-Dubois)}\label{theorem-1-kadison-dubois}}
+
+\^{}d2a172
+
+Let \(P \in R\) be an archimedean preprime and \(f \in R\). Then the
+following holds: \^{}018e86 1. {[}{[}\#representation
+space\textbar X(P){]}{]} is an nonempty and compact space. 2.
+\(\forall \phi \in X(P): \phi(f) \geq 0 \Leftrightarrow \forall N \in \mathbb N \exists k \in \mathbb N: k(1+Nf) \in P\)\\
+\#\#\#\# Proof ToDo
+
+\hypertarget{corallary-1-genreralized-stellensatz}{%
+\subsubsection{Corallary 1 (genreralized
+Stellensatz)}\label{corallary-1-genreralized-stellensatz}}
+
+Let \(R = \mathbb R [X_1,\dots, X_n] /(a_1,\dots,a_n)\) and
+\(P \subset R\) an archimedian preprime with \(\mathbb Q_+ \subset P\).
+Then for all \(f \in R\) we have:
+\[ f_{\vert S(P)}> 0 \Leftrightarrow \exists 0 < \epsilon \in \mathbb Q, \ p\in P: f = \epsilon +p.\]
+\#\#\#\# Proof {[}{[}\#zero-locus\textbar S(P){]}{]} can be canonically
+identified with the close set the {[}{[}\#representation space{]}{]} via
+\[\begin{aligned}S(P) &\rightarrow X(P) \\ x &\mapsto e_x  \end{aligned}\]
+where
+\[\begin{aligned} e_X: R &\rightarrow \mathbb R \\ f &\mapsto f(x)\end{aligned}\]
+hence \(S(P)\) is non-empty and compact by {[}{[}\#Theorem 1
+Kadison-Dubois\textbar Kadison-Dubois{]}{]}.
+
+Now assume \(f_{\vert S(P)}> 0\). Then there exists \(N \in \mathbb N\)
+s.t \((f-\frac 1 N)_{\vert S(P)} > 0\). By Kadison-Dubois we find
+\(k \in \mathbb N\) such that
+\[ k(1+N(f-\frac 1 N)) = k \cdot N \cdot f \in P\] By assumption
+\(\mathbb Q_+ \subset P\)
+
+\hypertarget{tags}{%
+\subsection{Tags}\label{tags}}
+
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://www.researchgate.net/publication/226463524_Positive_polynomials_on_compact_sets}{Positive
+  polynomials on compact sets, Berr, Wörmann}
+\item
+  \href{https://link.springer.com/article/10.1007/BF01192806}{Zum
+  Darstellungssatz von Kadison-Dubois, Becker ,Schwartz}
+\end{enumerate}
+
+\end{document}

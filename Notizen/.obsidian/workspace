@@ -4,13 +4,27 @@
     "type": "split",
     "children": [
       {
-        "id": "0e72c0dc964ef46f",
+        "id": "4ee5bc6adab57408",
         "type": "leaf",
+        "dimension": 55.05540166204986,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "3 Resources/Polynomials.md",
-            "mode": "source",
+            "file": "Research/Examples/Non-negativ and Non-SAGE Signom.md",
+            "mode": "preview",
+            "source": true
+          }
+        }
+      },
+      {
+        "id": "7264f6cd80be7bed",
+        "type": "leaf",
+        "dimension": 44.94459833795014,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Research/Examples/Non-negativ and Non-SAGE Signom.md",
+            "mode": "preview",
             "source": false
           }
         }
@@ -40,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -53,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 171
+    "width": 416
   },
   "right": {
     "id": "64f4da3db09cc920",
@@ -69,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3 Resources/Polynomials.md",
+                "file": "Research/Examples/Non-negativ and Non-SAGE Signom.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,17 +101,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "0e72c0dc964ef46f",
+  "active": "4ee5bc6adab57408",
   "lastOpenFiles": [
-    "3 Resources/Polynomials.md",
-    "3 Resources/Positivstellensätze.md",
-    "3 Resources/Algebraic Perspectives on Sigmonial Optimization.md",
-    "2 Areas/Research ToDos.md",
-    "3 Resources/On an extension of Polya’s Positivstellensatz.md",
-    "3 Resources/Signomials.md",
-    "3 Resources/Notation.md",
-    "3 Resources/Algebraic Definitions.md",
-    "Untitled.md",
-    "1 Projects/Masterarbeit.md"
+    "Research/Examples/Non-negativ and Non-SAGE Signom.md",
+    "Research/Definitions/Signomials.md",
+    "Research/Combined Notes.md",
+    "Research/Paper/Positive polynomials on compact sets.md",
+    "Research/Paper/On an extension of Polya’s Positivstellensatz.md",
+    "Research/Conditional Sage Positivstellensatz.md",
+    "Research/Definitions/Polynomials.md",
+    "Research/Paper/Relative Entropy Relaxations for Signomial Optimization.md",
+    "Research/Paper/Algebraic perspectives on sigmonial optimization.md",
+    "Research/Definitions/Algebraic Definitions.md"
   ]
 }

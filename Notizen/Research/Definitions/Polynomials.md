@@ -1,6 +1,7 @@
 # Polynomials
+Created: 2022-03-28 10:33
 
-A polynomial is a function $f: \mathbb R^n \rightarrow \mathbb R$ with the following form $$ f(x)= \sum_{i=0}^m c_ix^{\alpha_i}$$ with $\alpha_i = (\alpha_1,\dots,\alpha_n)$.
+A ***polynomial*** is a function $f: \mathbb R^n \rightarrow \mathbb R$ with the following form $$ f(x)= \sum_{i=0}^m c_ix^{\alpha_i}$$ with $\alpha_i = (\alpha_1,\dots,\alpha_n) \in \mathbb{Z}^n$.
 
 where $x^\alpha$ is defined as followed $$x^\alpha = \prod_{j=0}^n x_j^{\alpha_j}$$ with $\alpha = (\alpha_1,\dots,\alpha_n)$ beeing the exponent vector
 
@@ -10,4 +11,14 @@ where $x^\alpha$ is defined as followed $$x^\alpha = \prod_{j=0}^n x_j^{\alpha_j
 #### Homogenous Polynomials
 
 A polynomials is calles homogenous if all $\vert \alpha \vert$ ist the same for all exponents.
+
+
+## Tags
+
+#Polynomials
+
+## References
+1. 
+
+
 
