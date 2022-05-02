@@ -40,3 +40,65 @@
 \newtheorem{bsp}{Beispiel}
 \newtheorem{kor}{Korollar}
 
+% Some Notation
+
+\mathchardef\mhyphen="2D
+% \newcommand{\ph}{{\,\mathord\mhyphen\,}}
+\newcommand{\ph}{{\mhyphen}}
+
+% einige Abkuerzungen
+\newcommand{\C}{\mathbb{C}} % komplexe
+\newcommand{\K}{\mathbb{K}} % komplexe
+\newcommand{\R}{\mathbb{R}} % reelle
+\newcommand{\Q}{\mathbb{Q}} % rationale
+\newcommand{\Z}{\mathbb{Z}} % ganze
+\newcommand{\N}{\mathbb{N}} % natuerliche
+\newcommand{\A}{\mathbb{A}} % Affin
+\newcommand{\F}{\mathbb{F}} % Körper
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\X}{\mathcal{X}}
+
+%Vectors
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+
+
+%% common matrices
+
+\def\A{
+\begin{pmatrix}
+\frac 3 2 & 0 \\
+0 & 1 \\
+0 & -1
+\end{pmatrix}
+}
+\def\c{
+\myvec{1\\-1\\-1}
+}
+\def\H{
+\begin{pmatrix}
+1 & 0 \\
+-1 & 0 \\
+0 & 1 \\
+0 & -1 
+\end{pmatrix}
+}
+\def\d{
+\myvec{1\\-1\\1\\1}
+}
+\def\L{
+\begin{pmatrix}
+\frac 2 3 & 0 & 0 \\
+0 & \frac 1 2 & -\frac 1 2  \\
+\end{pmatrix}
+}
+\def\B{
+\begin{pmatrix}
+\frac 2 3 & 0 & 0 \\
+-\frac 2 3 & 0 & 0 \\
+0 & \frac 1 2 & -\frac 1 2 \\
+0 & -\frac 1 2 & \frac 1 2 \\
+\end{pmatrix}
+}

@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Research/Examples/Non-negativ and Non-SAGE Signom.md",
+            "file": "Research/Stellensätze.md",
             "mode": "preview",
             "source": true
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Research/Examples/Non-negativ and Non-SAGE Signom.md",
+                "file": "Research/Stellensätze.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,6 +103,7 @@
   },
   "active": "4ee5bc6adab57408",
   "lastOpenFiles": [
+    "Research/Stellensätze.md",
     "Research/Examples/Non-negativ and Non-SAGE Signom.md",
     "Research/Definitions/Signomials.md",
     "Research/Combined Notes.md",
@@ -111,7 +112,6 @@
     "Research/Conditional Sage Positivstellensatz.md",
     "Research/Definitions/Polynomials.md",
     "Research/Paper/Relative Entropy Relaxations for Signomial Optimization.md",
-    "Research/Paper/Algebraic perspectives on sigmonial optimization.md",
-    "Research/Definitions/Algebraic Definitions.md"
+    "Research/Paper/Algebraic perspectives on sigmonial optimization.md"
   ]
 }
