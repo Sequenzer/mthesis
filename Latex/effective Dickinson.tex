@@ -1,0 +1,71 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+\section{Positivstellesatz for homogenous polynomials}
+
+Dickinson et all provides a certificate for polynomials that are positive on a semialgebraic Set.
+\begin{thm}[Positivestellsatz Dickinson]
+\begin{equation}
+\forall \bar{f} \in \mathbb{R}[x] \left( A(\bar{f}) \wedge B(\bar{f}) \right) \Rightarrow \exists r, \bar{g} \  C(r,\bar{g})
+\end{equation}
+where $A$ denotes a sentence to enforce $f_i$ do be homogenous
+\begin{align*}
+A(\bar{f}) \equiv \bar f \text{ is homogenous}.
+\end{align*}
+Sentence $B$ asks is our positivity Statement
+\begin{align*}
+B(\bar f ) \equiv \forall x \in \mathbb{R}_+\cap \bigcap_{i=1}^n f^{-1}(\mathbb R_+) \setminus \lbrace 0 \rbrace
+\end{align*}
+and finally C is the certificate for said positivity
+\begin{align*}
+C(\bar f ,r, \bar g) \equiv \forall x \in \mathbb{R}^m : \ \vert x \vert_1^r \cdot f_0(x) = \sum_i^n f_i(x)g_i(x) 
+\end{align*}
+with $\bar g$ having only positive coefficients.
+\begin{proof}
+ToDo
+\end{proof}
+\end{thm}
+This means if we have a bound on the degree $r$ we calculate this represtation via a linear programm.
+
+\begin{algorithm}
+\caption{Brute force approach for a certificate}\label{euclid}
+\begin{algorithmic}[1]
+\SetKwProg{try}{try}{:}{}
+\SetKwProg{catch}{catch}{:}{}
+\State $\textit{LP} \gets \text{Linear Programm for A}$\\
+\While {$i \leq r$} {
+ \try{}{
+	\Return Solution of \textit{LP}
+ }
+ \catch{LP infeasibel}{
+ 	$i++$
+ }
+}
+\end{algorithmic}
+\end{algorithm}
+
+
+It is possible to construct a Linear Program that constructs the polynomials in the certificate C.
+\subsection{Linear programm for the solution of Dickinson}
+Let $\bar f = (f_0,\dots,f_n)$ be homogenous polynomials of degree $deg(f_i) = d_i$ that fulfill conditions $A$ and $C$. We construct polynomials $\bar g$ via equating of coefficients in $C$. To start we see that $\vert x \vert_1^r \cdot f_0(x)$ is a homogenous polynomial of degree $d_0+r$.
+\begin{align*}
+\vert x \vert_1^r \cdot f_0(x) = \sum_{\vert \alpha \vert = d_0+r} l_\alpha x^\alpha
+\end{align*}
+which means it is constructed via less than $m^{d_0+r}$ many. To match the degree on the left Side. $g_i$ has to have a degree of $d_0+r-d_i$, which means it is based on $m^{d_0+r+d_i}$ many monomials.
+
+Now let $h_{(i,j)}$ be a monomial of degree $d_0+r-d_i$ and $f_i$ a homogenous polynomials as given. It holds that
+\begin{align*}
+h_{i,j} \cdot f_i = \sum_{\vert \alpha \vert = d_i} c_{i,j} b_{i,\alpha} x^\alpha
+\end{align*}
+By arbitrarily ordering every Monomials we can relabel $b_\alpha$ with $b_{j}$ refering to the $j$ position in our Order. 
+Which means 
+\begin{align*}
+g_i \cdot f_i &= \sum_{j=1}^{m^{d_0+r-d_i}}  \sum_{\vert \alpha \vert = d_i} c_{i,j} b_{i,\alpha} x^{\alpha+\beta_j}\\
+\Rightarrow \ \sum_i g_i \cdot f_i &=  \sum_{i=1}^n \sum_{j=1}^{m^{d_0+r-d_i}}  \sum_{\vert \alpha \vert = d_i} c_{i,j} b_{i,\alpha} x^{\alpha+\beta_j}
+\end{align*}
+has to hold. THis means to get the coefficients $l_\alpha$, we have to solve the following equation
+\begin{align*}
+l_\gamma &=  \sum_{i=1}^n \sum_{j=1}^{m^{d_0+r-d_i}}  \sum_{ \alpha: \alpha + \beta_j = d_i} c_{i,j} b_{i,\alpha} x^{\alpha+\beta_j}
+\end{align*}
+\end{document}
+
