@@ -1,0 +1,49 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+
+\section{Example class 1}
+\subsection{Example Class}
+\begin{thm}
+\label{monomClass}
+Let $p: \R \rightarrow \R$ with $p(x) = c e^{\alpha x}$ with $\alpha >1$ and $c>0$.Then the following statement holds
+\begin{align*}
+c> 0 \implies  0 \leq f(x)+f(-x)-f_{min} \not\in SAGE(A,\R)
+\end{align*}
+für
+\begin{align*}
+f(x) = c_3 \cdot e^{(\alpha +1) x} -p(x) + c_1 \cdot e^{(\alpha -1) x} \geq 0 \ \forall x \in \mathbb{R}
+\end{align*}
+with $A = \myvec{\alpha +1 \\ \alpha \\ \alpha -1 }$, $c_1 = \frac {c e} {2} $ and $c_3 = \frac {c} {2 e}$. $f_{min}$ denotes the minimum of $f(x)+f(-x)$.
+\begin{proof} First let $g=f(x)+f(-x)-f_{min}$. It is easily provable that  $f(1)=f'(1)=0$ which means every positive coefficient of monomials in $f$ is minimal in that, if we would decrease them $g$ would be negative. Furthermore there now is an extra negative coefficient which means $g\not \in SAGE(A,\R)$. 
+\begin{align*}
+c_g=\myvec{c_3\\-c\\c_2\\c_3\\-c\\c_2\\-f_{min}}
+\end{align*}
+Nonnegativity follows from nonegativity of $f$.
+\end{proof}
+\end{thm}
+\begin{bsp}
+Let $c=\frac 5 4 =1.25$ and $\alpha = \frac 3 2 = 1.5$ and $p(x)=ce^{\alpha x}$. By Theorem \ref{monomClass} we can construct
+\begin{align*}
+f(x)= \frac{5}{8e}e^{2.5x} -\frac 5 4 e^{1.5x}+\frac{5e}{8}e^{0.5x}.
+\end{align*}
+it holds that $f(1)=f'(1)=0$.
+\end{bsp}
+
+\begin{thm}
+Let $p: \R^n \rightarrow \R$ with $p(x) = c e^{\alpha^T x}$ and $\alpha \in \R^n$ be a monomial. Then the following statement holds
+\begin{align*}
+c> 0 \implies \leq f(x)+f(-x)-f_{min} \not\in SAGE(A,\R^n)
+\end{align*}
+\begin{align*}
+f(x) = \sum_i^n c_{3,i} \cdot e^{(\alpha_i +1) x_i} -p(x) + \sum_i^n c_{1,i} \cdot e^{(\alpha_i -1) x_i}
+\end{align*}
+with $A = \myvec{\alpha +\vec 1\\ \alpha \\ \alpha -\vec 1 }$, $c_{1,i} = \frac {\alpha_i e} {2} $ and $c_{3,i} = \frac {\alpha_i} {2 e}$.
+\begin{proof}
+Follows directly from above?
+\end{proof}
+\end{thm}
+This can be generalized to $p$ being a general Posynomials... 
+
+
+\end{document}
