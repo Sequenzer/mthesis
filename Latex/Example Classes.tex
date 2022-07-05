@@ -27,23 +27,72 @@ Let $c=\frac 5 4 =1.25$ and $\alpha = \frac 3 2 = 1.5$ and $p(x)=ce^{\alpha x}$.
 \begin{align*}
 f(x)= \frac{5}{8e}e^{2.5x} -\frac 5 4 e^{1.5x}+\frac{5e}{8}e^{0.5x}.
 \end{align*}
-it holds that $f(1)=f'(1)=0$.
+it holds that $f(1)=f'(1)=0$. By construction it holds that $f(x)+f(-x)-f_{min}>0$ for all $x \in \mathbb{R}$.
 \end{bsp}
 
-\begin{thm}
-Let $p: \R^n \rightarrow \R$ with $p(x) = c e^{\alpha^T x}$ and $\alpha \in \R^n$ be a monomial. Then the following statement holds
+\section{Sage-Positivstellensatz Example}
+Using Wangs Positivstellensatz on his own Example.
+\subsection{Signomial to Polynomial}
+This is an Example from Wang et al. (Citation). Let $\mathcal X = \lbrace x \in \R^2 | x_1 = 1, -1\leq x_2 \leq 1 \rbrace$, 
+\begin{equation*}
+c = \c, \ A =  \A, \ f=e^{\frac 2 3 x_1} - e^{x_2} - e^{-x_2}
+\end{equation*}
+Translation $\X$ in a intersection of Halfspaces we get
 \begin{align*}
-c> 0 \implies \leq f(x)+f(-x)-f_{min} \not\in SAGE(A,\R^n)
+\X = \lbrace x \in \R \vert Hx \leq d \rbrace
 \end{align*}
+with
 \begin{align*}
-f(x) = \sum_i^n c_{3,i} \cdot e^{(\alpha_i +1) x_i} -p(x) + \sum_i^n c_{1,i} \cdot e^{(\alpha_i -1) x_i}
+H =  \H \text{ and } d = \d.
 \end{align*}
-with $A = \myvec{\alpha +\vec 1\\ \alpha \\ \alpha -\vec 1 }$, $c_{1,i} = \frac {\alpha_i e} {2} $ and $c_{3,i} = \frac {\alpha_i} {2 e}$.
-\begin{proof}
-Follows directly from above?
-\end{proof}
-\end{thm}
-This can be generalized to $p$ being a general Posynomials... 
+To follow Wang's proof we first construct a leftinverse of $A$ and $B=HL$.
+\begin{align*}
+L = \L, B = \B
+\end{align*}
+Now it obviously holds that $Hx \leq d  \Leftrightarrow BAx \leq d$. If we transform $x$ by $y=\text{exp}(Ax)$ we get for every halfspace constraint a new polynomial constraint.
+\begin{align*}
+B_1(Ax) \leq d_1 \Leftrightarrow  \myvec{\frac 2 3\\0\\0}^T  \cdot Ax \leq d \Leftrightarrow y_1^{\frac 2 3}y_2^0y_3^0 \leq e^d
+\end{align*}
+Doing this we get a final semialgebraic set
+\begin{align*}
+\T = \lbrace y \in \R^2_+ \vert \ & e^3 - y_1^2 \geq 0 \\
+& e^{-3}y_1^2 -1 \geq 0 \\
+& e - y_2 \geq 0\\
+& ey_2 - 1 \geq 0 \\
+& y_1 - e^{\frac 3 2} \geq 0 \\
+& e^{\frac 3 2} - y_1 \geq 0 \\
+&e- y_2 \geq 0 \\
+&y_2 -e^{-1}  \geq 0
+\end{align*}
+We use the fact that $y_3 = exp(-x_2) = y_2^{-1}.$ Homogenisation now leads to
+\begin{align*}
+\T = \lbrace y \in \R^3_+ \vert \ & y_3^2e^3 - y_1^2 \geq 0 \\
+& e^{-3}y_1^2 -y_3^2 \geq 0 \\
+& ey_3 - y_2 \geq 0\\
+& ey_2 - y_3 \geq 0 \\
+& y_1 - e^{\frac 3 2}y_3 \geq 0 \\
+& e^{\frac 3 2}y_3 - y_1 \geq 0 \\
+&ey_3- y_2 \geq 0 \\
+&y_2 -e^{-1}y_3  \geq 0 \\
+&\textcolor{red}{y_3 =  1}
+\end{align*}
+The last equation is impossible to homogenize but Dickinsons Positivstellensatz allows one polynomial to be constant. Now we only have to do the polynomials case....
+
+
+%\begin{thm}
+%Let $p: \R^n \rightarrow \R$ with $p(x) = c e^{\alpha^T x}$ and $\alpha \in \R^n$ be a monomial. Then the following statement holds
+%\begin{align*}
+%c> 0 \implies \leq f(x)+f(-x)-f_{min} \not\in SAGE(A,\R^n)
+%\end{align*}
+%\begin{align*}
+%f(x) = \sum_i^n c_{3,i} \cdot e^{(\alpha_i +1) x_i} -p(x) + \sum_i^n c_{1,i} \cdot e^{(\alpha_i -1) x_i}
+%\end{align*}
+%with $A = \myvec{\alpha +\vec 1\\ \alpha \\ \alpha -\vec 1 }$, $c_{1,i} = \frac {\alpha_i e} {2} $ and $c_{3,i} = \frac {\alpha_i} {2 e}$.
+%\begin{proof}
+%Follows directly from above?
+%\end{proof}
+%\end{thm}
+%This can be generalized to $p$ being a general Posynomials... 
 
 
 \end{document}
