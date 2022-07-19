@@ -1,0 +1,36 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+\section{SAGE Signomials}
+\begin{ddef}[Signomial]
+Let $c \in \mathbb{R}^l$ and $A \in \mathbb{l\times n}$. We then call the folowing sum of exponentiaal functions a \emph{Signomial}.
+\begin{align*}
+Sig(c,A)(x) = \sum_{j=1}^l c_j exp(A_jx)
+\end{align*}
+\end{ddef}
+By using the transformation $y_i=exp(x_i)$ we can see the connection between Signomials and Polynomials. By interpreting the former as a generalized version of the latter. By expanding its exponents to real numbers.
+\begin{align*}
+Sig(c,A)(x) = \sum_{j=1}^l c_j exp(A_jx) = \sum_{j=1}^l c_j y_1^{A_{j,1}} \dots y_n^{A_{j,n}}
+\end{align*}
+\begin{ddef}[AGE Signomials]
+We call a signomial with at most one negative coefficient an AGE-signomial over $\mathcal{X}$  which 
+\begin{align*}
+AGE(A,\mathcal{X}, i) = \lbrace Sig(c,A) | \ c_{\backslash i} \geq 0 \text{ and } Sig(c,a)(x) \geq 0 \ \forall x \in \mathcal{X} \rbrace
+\end{align*}
+\end{ddef}
+\begin{ddef}[SAGE Signomials]
+\emph{SAGE-signmials} are sums of AGE-signomials
+\begin{align*}
+SAGE(A,\mathcal{X}) = \sum_{i=1}^l AGE(A,\mathcal{X},i)
+\end{align*}
+
+\end{ddef}
+\section{Positivstellensatz for SAGE Signomials}
+
+\begin{thm} Let $c \in \mathbb{R}^n$ and $A = \left[A_1,\dots, A_l \right]^T \subset \mathbb{Q}^{l\times n}$. Additionaly let $\mathcal{X} \subset \mathbb{R}^n$ be a polyhedra on which $Sig(c,A)(x) > 0 \ \forall x \in \mathcal{X}$ holds. Then there exists some $p \in \mathbb{Z}_+$ such that $|exp(Ax)^T|^p_1 \cdot Sig(c,A)$ is a SAGE signomial.
+\begin{proof}
+ToDo
+\end{proof}
+\end{thm}
+The proof of this is purely constructive and a bound on $p$ can easily computed given a upper bound for the degree in Dickinsons Positivstellensatz (Theorem \ref{Dickinson})
+\end{document}
