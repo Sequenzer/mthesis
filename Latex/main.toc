@@ -1,0 +1,18 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Positivstellesatz for homogenous polynomials}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Proof of Dickinsons Positivstellensatz}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Linear programm for the solution of Dickinson}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Constructing a linear program}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Example}{4}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Algorithm}{5}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Complexity}{5}{subsubsection.1.4.2}%
+\contentsline {section}{\numberline {2}SAGE Signomials}{5}{section.2}%
+\contentsline {section}{\numberline {3}Positivstellensatz for SAGE Signomials}{6}{section.3}%
+\contentsline {section}{\numberline {4}Sage-Positivstellensatz Example}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Signomial to Polynomial}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Polynomial Solution}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Example of positive but not $\mathcal {X}$-SAGE}{8}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Complexity}{9}{section.5}%
+\contentsline {section}{Literatur}{9}{section*.3}%
+\contentsline {section}{\numberline {6}Appendix}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Code}{9}{subsection.6.1}%

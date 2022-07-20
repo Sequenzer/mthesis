@@ -2,8 +2,8 @@
 
 \begin{document}
 \section{Positivstellesatz for homogenous polynomials}
-
-Dickinson et all provides a certificate for polynomials that are positive on a semialgebraic Set.
+\label{secDick}
+In \cite{dickinson2015extension} Dickinson et al  provide a certificate for polynomials that are positive on a semialgebraic Set.
 \begin{thm}[Positivestellsatz Dickinson]
 \label{Dickinson}
 \begin{equation}
@@ -22,10 +22,22 @@ and finally C is the certificate for said positivity
 C(\bar f ,r, \bar g) \equiv \forall x \in \mathbb{R}^m : \ \vert x \vert_1^r \cdot f_0(x) = \sum_i^n f_i(x)g_i(x) 
 \end{align*}
 with $\bar g$ having only positive coefficients.
-\begin{proof}
+\end{thm}
+\subsection{Proof of Dickinsons Positivstellensatz}
+To give a complete proof of  theorem \ref{Dickinson} we first have to proof Putinar-Vasilescu’s Positivstellensatz \cite{putinar1999positive} (and Polya's original Positivstellensatz) to get a complete proof.
+\begin{proof}[Putinar-Vasilescu]
 ToDo
 \end{proof}
-\end{thm}
+
+
+\begin{proof}[Dickinson]
+Copy from notes....
+\end{proof}
+
+
+\begin{proof}[Dickinson]
+Copy from notes
+\end{proof}
 This means if we have a bound on the degree $r$ we calculate this represtation via a linear programm.
 
 \begin{algorithm}
@@ -180,9 +192,9 @@ And the witness polynomials in Theorem \ref{Dickinson} are
 \begin{align*}
 \vert x \vert_1^1 \cdot f_0(x) = 0\cdot f_1 + (x_1+2x_2)\cdot f_2 +(x_1 + 2x_3)\cdot f_3 + 1 \cdot f_4
 \end{align*}
-\subsubsection{alogrithm}
+\subsubsection{Algorithm}
 ToDo
-
-
+\subsubsection{Complexity}
+Approach  \cite{delzell1996kreisel}? or chapter 15 in \cite{kohlenbach2008applied} as \ref{Dickinson} has the needed strucuture for bound extraction theorem.
 \end{document}
 
