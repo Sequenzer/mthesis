@@ -1,7 +1,7 @@
 \documentclass[./main.tex]{subfiles}
 
 \begin{document}
-\section{Positivstellesatz for homogenous polynomials}
+\section{Positivstellensatz for homogenous polynomials}
 \label{secDick}
 In \cite{dickinson2015extension} Dickinson et al  provide a certificate for polynomials that are positive on a semialgebraic Set.
 \begin{thm}[Positivestellsatz Dickinson]
@@ -23,22 +23,9 @@ C(\bar f ,r, \bar g) \equiv \forall x \in \mathbb{R}^m : \ \vert x \vert_1^r \cd
 \end{align*}
 with $\bar g$ having only positive coefficients.
 \end{thm}
-\subsection{Proof of Dickinsons Positivstellensatz}
-To give a complete proof of  theorem \ref{Dickinson} we first have to proof Putinar-Vasilescu’s Positivstellensatz \cite{putinar1999positive} (and Polya's original Positivstellensatz) to get a complete proof.
-\begin{proof}[Putinar-Vasilescu]
-ToDo
-\end{proof}
 
 
-\begin{proof}[Dickinson]
-Copy from notes....
-\end{proof}
-
-
-\begin{proof}[Dickinson]
-Copy from notes
-\end{proof}
-This means if we have a bound on the degree $r$ we calculate this represtation via a linear programm.
+This means if we have a bound on the degree $r$ we calculate this representation via a linear programm.
 
 \begin{algorithm}
 \caption{Brute force approach for a certificate}\label{euclid}
@@ -62,11 +49,11 @@ It is possible to construct a Linear Program that constructs the polynomials in 
 \subsection{Linear programm for the solution of Dickinson}
 
 
-Let $\bar f = (f_0,\dots,f_n)$ be homogenous polynomials of degree $deg(f_i) = d_i$  that fulfill conditions $A$ and $C$. We construct polynomials $\bar g$ via equating of coefficients in $C$. To start we see that $\vert x \vert_1^r \cdot f_0(x)$ is a homogenous polynomial of degree $d_0+r$.
+Let $\bar f = (f_0,\dots,f_n)$ be homogenous polynomials of degree $deg(f_i) = d_i$  that fulfill conditions $A$ and $B$. We construct polynomials $\bar g$ via equating of coefficients in sentence $C$. To start we see that $\vert x \vert_1^r \cdot f_0(x)$ is a homogenous polynomial of degree $d_0+r$.
 \begin{align*}
 \vert x \vert_1^r \cdot f_0(x) = \sum_{\vert \alpha \vert = d_0+r} l_\alpha x^\alpha
 \end{align*}
-which means it is constructed via less than $\binom{m+ d_0+r -1 }{d_0+r}$ many monomials. To match the degree on the left side. $g_i$ has to have a degree of $d_0+r-d_i$, which means it is based on $ \binom {m + d_0+r-d_i-1} {d_0+r-d_i}$ many monomials.
+which means it is constructed via less than $\binom{m+ d_0+r -1 }{d_0+r}$ many monomials. To match the degree on the left side $g_i$ has to have a degree of $d_0+r-d_i$, which means it is based on $ \binom {m + d_0+r-d_i-1} {d_0+r-d_i}$ many monomials.
 
 Now let $h_{i,\beta}$ be a monomial of degree $d_0+r-d_i$ and $f_i$ a homogenous polynomials as given. It holds that
 \begin{align*}
@@ -98,7 +85,7 @@ B_i[\gamma,\alpha]    = \begin{cases}
 \end{equation*}
 with $\alpha \in \mathbb{N}^d_i$. 
 
-Solving this lienar program gives us $n$ nonnegative coefficient vectors that describes the nonegative polynommials $g_i$ from theorem \ref{Dickinson}. 
+Solving this linear program gives us $n$ nonnegative coefficient vectors that describes the nonnegative polynomials $g_i$ from theorem \ref{Dickinson}. To better understand the procedure, we follow it's steps via an example.
 
 \subsection{Example}
 Let $\bar{f}=(f_0,\dots,f_4)$ the vector comprised of 
@@ -109,7 +96,7 @@ f_2 &= x_1 -x_2\\
 f_3 &= x_1 -x_3\\
 f_4 &= x_1^2 -4x_2x_3
 \end{align*}
-$\bar{f}$ is homogenous and $B(\bar{f})$ holds as well. Therefore $C(\bar{f},r,\bar{g})$ has to hold for some $r\in \mathbb{N}$ and homogenous polynomials $\bar{g}$ with nonnegative coefficients. 
+$\bar{f}\backslash f_1$ is homogenous and $B(\bar{f})$ holds as well. Therefore $C(\bar{f},r,\bar{g})$ has to hold for some $r\in \mathbb{N}$ and homogenous polynomials $\bar{g}$ with nonnegative coefficients. 
 
 Folowing aboves strategy we select $r=1$ and calculate $ \vert x \vert_1^1 \cdot f_0(x)$.
 \begin{align}
@@ -127,7 +114,7 @@ B_1 = \begin{pmatrix}
 0&0&0&0&0&1\\
 \end{pmatrix}.
 \end{align*}
-Calculating $B_2$ isn't much different. At first we observe that $g_2$ has only $\binom 3 1 = 3 $ (This is wrong!!). monomials which leads to $B_2 \in \mathbb{R}^6 \times 2$. $f_2 = x_1 -x_2$ which means the monomials
+Calculating $B_2$ isn't much different. At first we observe that $g_2$ has only $\binom 3 1 = 3 $ (This is wrong!!). monomials which leads to $B_2 \in \mathbb{R}^{6 \times 2}$. $f_2 = x_1 -x_2$ which means the monomials
 \begin{align*}
 x_1,x_2,x_3,-x_1,-x_2,-x_3
 \end{align*}
@@ -140,7 +127,7 @@ B_2 = \begin{pmatrix}
 0&-1&0\\
 0&0&-1\\
 0&0&0\\
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
 has 4 non zero elements. $B_3$ works the same way.
 \begin{align*}
@@ -151,7 +138,7 @@ B_3 = \begin{pmatrix}
 0&0&0\\
 0&-1&\\
 0&0&-1\\
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
 With $f_4$ having the same degree $d_4=d_0+r$ as needed, there is only the constant monnomial to construct $B_4$
 \begin{align*}
@@ -192,9 +179,20 @@ And the witness polynomials in Theorem \ref{Dickinson} are
 \begin{align*}
 \vert x \vert_1^1 \cdot f_0(x) = 0\cdot f_1 + (x_1+2x_2)\cdot f_2 +(x_1 + 2x_3)\cdot f_3 + 1 \cdot f_4
 \end{align*}
+\subsection{Proof of Dickinsons Positivstellensatz}
+To give a complete proof of  theorem \ref{Dickinson} we first have to proof Putinar-Vasilescu’s Positivstellensatz \cite{putinar1999positive} (and Polya's original Positivstellensatz) to get a complete proof.
+\begin{proof}[Proof of Putinar-Vasilescu]
+ToDo
+\end{proof}
+
+
+\begin{proof}[Proof of Dickinson]
+Copy from notes....
+\end{proof}
+
 \subsubsection{Algorithm}
 ToDo
 \subsubsection{Complexity}
-Approach  \cite{delzell1996kreisel}? or chapter 15 in \cite{kohlenbach2008applied} as \ref{Dickinson} has the needed strucuture for bound extraction theorem.
+Approach  \cite{delzell1996kreisel}? or chapter 15 in \cite{kohlenbach2008applied} as \ref{Dickinson} has the needed structure for the bound extraction theorem.
 \end{document}
 

@@ -3,12 +3,12 @@
 \begin{document}
 \section{SAGE Signomials}
 \begin{ddef}[Signomial]
-Let $c \in \mathbb{R}^l$ and $A \in \mathbb{l\times n}$. We then call the folowing sum of exponentiaal functions a \emph{Signomial}.
+Let $c \in \mathbb{R}^l$ and $A \in \mathbb{R}^{l \times n}$. We then call the following sum of exponentiaal functions a \emph{Signomial}.
 \begin{align*}
 Sig(c,A)(x) = \sum_{j=1}^l c_j exp(A_jx)
 \end{align*}
 \end{ddef}
-By using the transformation $y_i=exp(x_i)$ we can see the connection between Signomials and Polynomials. By interpreting the former as a generalized version of the latter through expanding its exponents to real numbers.
+By using the transformation $y_i=exp(x_i)$ we can see the connection between Signomials and Polynomials, by interpreting the former as a generalized version of the latter through expanding its exponents to real numbers.
 \begin{align*}
 Sig(c,A)(x) = \sum_{j=1}^l c_j exp(A_jx) = \sum_{j=1}^l c_j y_1^{A_{j,1}} \dots y_n^{A_{j,n}}
 \end{align*}
@@ -17,7 +17,7 @@ We call a signomial with at most one negative coefficient an \emph{$\mathcal{X}$
 \begin{align*}
 AGE(A,\mathcal{X}, i) = \lbrace Sig(c,A) | \ c_{\backslash i} \geq 0 \text{ and } Sig(c,a)(x) \geq 0 \ \forall x \in \mathcal{X} \rbrace
 \end{align*}
-being the set of all \emph{$\mathcal{X}$-AGE} signomials.
+being the set of all \emph{$\mathcal{X}$-AGE} signomials with at most $c_i$ beeing (not necessarily) negative.
 \end{ddef}
 \begin{ddef}[SAGE Signomials]
 \emph{$\mathcal{X}$-SAGE} signomials are sums of AGE-signomials
@@ -27,7 +27,7 @@ SAGE(A,\mathcal{X}) = \sum_{i=1}^l AGE(A,\mathcal{X},i)
 
 \end{ddef}
 \section{Positivstellensatz for SAGE Signomials}
-Similar to polynomial case there exist Positivstellensätze for Signomials. The Statement here is a specific case of the SAGE-Positivstellensatz in \cite{wang2020positivstellensatz} from Wang et al. Our version differs by restricting its area of positivity to be a Polyhedral. This is necessary to avoid constructivistic issues with the Axiom of Choice that arise  via the Hahn–Banach theorem. Even though there are constructive version of the latter we will refrain using this theorem altogether .
+Similar to the polynomial case there exist Positivstellensätze for Signomials. The Statement here is a specific case of the SAGE-Positivstellensatz in \cite{wang2020positivstellensatz} from Wang et al. Our version differs by restricting its area of positivity to be a Polyhedral. This is necessary to avoid constructivistic issues with the Axiom of Choice that arise  via the Hahn–Banach theorem. Even though there are constructive version of the latter we will refrain from using this theorem altogether .
 \begin{thm}[SAGE-Positivstellensatz]
 \label{SAGEthm}
 
@@ -36,18 +36,18 @@ Similar to polynomial case there exist Positivstellensätze for Signomials. The 
 Copy from Notes...
 \end{proof}
 \end{thm}
-The part of the proof that doesn'r rely on Dickinsons Positivstellensatz  is purely constructive, which means given a bound on $r$ in theorem \ref{Dickinson} we can easily compute a bound on $p$ in the SAGE-Positivstellensatz. This stems from the fact that similary to the polynomial case the modulations of $Sig(c,A)$ form a hierarchy i.e 
+The part of the proof that doesn't rely on Dickinsons Positivstellensatz  is purely constructive, which means given a bound on $r$ in theorem \ref{Dickinson} we can easily compute a bound on $p$ in the SAGE-Positivstellensatz. This stems from the fact that similary to the polynomial case the modulations of $Sig(c,A)$ form a hierarchy i.e 
 \begin{align*}
- |exp(Ax)^T|^p_1 \cdot Sig(c,A) \text{ is SAGE } \Rightarrow |exp(Ax)^T|^{p+1}_1 \cdot Sig(c,A) \text{ is SAGE }
+ |exp(Ax)^T|^p_1 \cdot Sig(c,A) \text{ is } \mathcal{X}\text{-SAGE } \Rightarrow |exp(Ax)^T|^{p+1}_1 \cdot Sig(c,A) \text{ is } \mathcal{X}\text{-SAGE }
 \end{align*}
 \section{Sage-Positivstellensatz Example}
-Quick Example to explain the algorithm.
+Quick Example to explain the procedure.
 \subsection{Signomial to Polynomial}
 This is an Example from Wang et al. (Citation). Let $\mathcal X = \lbrace x \in \R^2 | x_1 = 1, -1\leq x_2 \leq 1 \rbrace$, 
 \begin{equation*}
 c = \c, \ A =  \A, \ f=e^{\frac 2 3 x_1} - e^{x_2} - e^{-x_2}
 \end{equation*}
-Translation $\X$ in a intersection of Halfspaces we get
+Translating $\X$ into an intersection of Halfspaces we get
 \begin{align*}
 \X = \lbrace x \in \R \vert Hx \leq d \rbrace
 \end{align*}
@@ -55,7 +55,7 @@ with
 \begin{align*}
 H =  \H \text{ and } d = \d.
 \end{align*}
-To follow Wang's proof we first construct a leftinverse of $A$ and $B=HL$.
+To follow the proof we first construct a leftinverse of $A$ and $B=HL$.
 \begin{align*}
 L = \L, B = \B
 \end{align*}
@@ -74,9 +74,9 @@ Doing this we get a final semialgebraic set
 &e- y_2 \geq 0 \\
 &y_2 -e^{-1}  \geq 0 \\
 &e- y_3 \geq 0 \\
-&y_3 -e^{-1}  \geq 0 \rbrace
+&y_3 -e^{-1}  \geq 0 \rbrace.
 \end{align*}
-We use the fact that $y_3 = exp(-x_2) = y_2^{-1}.$ Homogenisation now leads to
+Homogenisation now leads to
 \begin{align*}
 \T' = \lbrace y \in \R^4_+ \vert \ & y_4^2e^3 - y_1^2 \geq 0 \\
 & e^{-3}y_1^2 -y_4^2 \geq 0 \\
@@ -123,7 +123,7 @@ c_g=\myvec{c_3\\-c\\c_2\\c_3\\-c\\c_2\\-f_{min}}
 Nonnegativity follows from nonegativity of $f$.
 \end{proof}
 \end{thm}
-A specific example of this calss would be.
+A specific example of this class would be.
 \begin{bsp}
 Let $c=\frac 5 4 =1.25$ and $\alpha = \frac 3 2 = 1.5$ and $p(x)=ce^{\alpha x}$. By Theorem \ref{monomClass} we can construct
 \begin{align*}
@@ -131,7 +131,7 @@ f(x)= \frac{5}{8e}e^{2.5x} -\frac 5 4 e^{1.5x}+\frac{5e}{8}e^{0.5x}.
 \end{align*}
 it holds that $f(1)=f'(1)=0$. By construction we know that $f(x)+f(-x)-f_{min}\geq 0$ for all $x \in \mathbb{R}$.
 \end{bsp}
-Whereas this procedure generates a huge class of examples these are not necessarily positive. Theorem \ref{SAGEthm} requires positivity for which we can have to construct a smaller and not globaly positiv example class
+Whereas this procedure generates a huge class of examples these are not positive. Theorem \ref{SAGEthm} requires positivity for which we can construct a smaller and not globally positiv example class
 \begin{thm}
 Let $\mathcal{X}=[-1,1]^2$ and
 \begin{align*}

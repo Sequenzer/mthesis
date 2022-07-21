@@ -4,5 +4,154 @@
 \section{Appendix}
 Temporary Code dump....
 \subsection{Code}
+Construction of Linear Program
+\begin{lstlisting}
+using DynamicPolynomials,LinearAlgebra
+using JuMP
+import HiGHS
+
+function getLP(poly,arrayOfPolynomials,var)
+    d = maxdegree(poly)
+    base=monomials(var,d)
+    b=coefficients(poly,base)
+    c=[]
+    nVars=[]
+    for f in arrayOfPolynomials
+        deg=d - maxdegree(f)
+        push!(nVars,size(monomials(var,deg))[1])
+        l = []
+        for g in monomials(var,deg)
+            basepoly=g*f
+            push!(l,coefficients(basepoly,monomials(var,d)))
+        end
+        l=transpose(reduce(vcat,transpose.(l)))
+        push!(c,l)
+    end
+    c=transpose(reduce(vcat,transpose.(c)))
+    
+    #Create Linear Program
+    m = size(b,1) #Number of Monomials in Polynom to Match
+    LP = Model(HiGHS.Optimizer) # Initialize Model
+    set_optimizer_attribute(LP, "log_to_console", "false") # disable debug info
+    n=size(c,2) # Number of Variables
+    @variable(LP, u[1:n]>=0)
+    for i in 1:m
+        @constraint(LP, sum(dot(u,c[i,:])) == b[i])
+    end
+    # print(LP)
+    return (LP,u,b,c,nVars)
+end
+\end{lstlisting}
+Solving Linear Program
+
+\begin{lstlisting}
+function getSolution(poly,arrayOfPolynomials,var)
+    LP,u,b,c,n = getLP(poly,arrayOfPolynomials,var)
+    # print(LP)
+    JuMP.optimize!(LP)
+    if JuMP.has_values(LP)
+        sol=JuMP.value.(u)
+        walk=1
+        c=[]
+        solPoly=[]
+        for (j,i) in enumerate(n)
+            coeff = view(sol,walk:walk+i-1)
+            base = monomials(var,maxdegree(poly)-maxdegree(arrayOfPolynomials[j]))
+            push!(solPoly,polynomial(coeff,base))
+            push!(c,coeff)
+            walk+=i
+        end
+        return (solPoly,c)
+    else
+        return false
+    end
+end
+\end{lstlisting}
+Procedure that runs through the degrees
+
+\begin{lstlisting}
+function Run(poly,arrayOfPolynomials,maxeval)
+    var = variables([arrayOfPolynomials...,poly])
+    for i in 1:maxeval
+        e=polynomial(monomials(var,1))^i*poly
+        Sol,c = getSolution(e,arrayOfPolynomials,var)
+        if Sol != false
+            return Sol,c
+        end
+    end    
+    return false
+end
+\end{lstlisting}
+
+\subsubsection{Signomial to Polynomial}
+
+Construct support for the Polynomials constraints of $\mathcal{X}$.
+\begin{lstlisting}
+function getSupport(B,d)
+    Supp=[]
+    nvars=size(B,2)
+    # print(nvars)
+    for (i,row) in enumerate(eachrow(B))
+        P=[]
+        N=[]
+        denom=lcm(denominator.(row))
+        for (j,ele) in enumerate(row)
+            if ele >= 0
+                push!(P,(Int(ele*denom),j))
+            else
+                push!(N,(Int(-ele*denom),j))
+            end
+        end
+        pdegree=sum(Int[x[1] for x in P])
+        ndegree=sum(Int[x[1] for x in N])
+        if pdegree>ndegree
+            push!(N,(pdegree-ndegree,nvars+1))
+        elseif pdegree<ndegree
+            push!(P,(ndegree-pdegree,nvars+1))   
+        end
+        push!(Supp,(P,N,denom*d[i]))
+    end
+    return (Supp,nvars)
+end
+\end{lstlisting}
+
+
+Get redundant constraints needed for positivity on $\mathcal{X}$
+\begin{lstlisting}
+function getRedCons(A,H,d,var)
+    R=[]
+    # Start with upper bounds
+    C = findMinOnSet(A,H,d)
+    nvars = size(C,1) #Number of  Variables
+    for i in 1:nvars
+        fun = var[i]-e^C[i][1]*var[nvars+1]
+        push!(R,fun)
+    end
+    
+    # Add lower bounds
+     D = findMaxOnSet(A,H,d)
+    for i in 1:size(D,1)
+        fun = e^D[i][1]*var[nvars+1]-var[i]
+        push!(R,fun)
+    end
+    return (R,nvars)
+end
+\end{lstlisting}
+
+finalising and homogenization
+\begin{lstlisting}
+function getallConstraints(A,H,c,d)
+    SAS,var = SASbyMatrix(A,H,c,d)
+    RC,nvars = getRedCons(A,H,d,var)
+    Sol = vcat(SAS, RC)
+    # Add Homogenization Constraint
+    push!(Sol,var[nvars+1])
+    # Objective Function
+    f= sum(c.*var[1:nvars])
+    return (f,Vector(Sol))
+    
+end
+\end{lstlisting}
+
 
 \end{document}
